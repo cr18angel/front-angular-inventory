@@ -1,0 +1,40 @@
+
+<app-spinner *ngIf="loading" ></app-spinner>
+<div class="container">
+
+
+
+<div  class="content-container">
+
+   
+   
+<table  class="table table-hover text-center">
+    <thead >
+        <tr>
+            <th>Id</th>
+            <th>Nombre </th>
+            <th> <button routerLink="/cargo" mat-raised-button color="warn">Nuevo</button>    </th>
+         
+        </tr>
+    </thead>
+    <tbody>
+       
+        <tr *ngFor="let cargo of dataSources" >
+            <td>{{cargo.id}}</td>
+            <td>{{cargo.cargoNombre}}</td>
+       
+           
+            <td>
+                <mat-icon  matTooltip="Editar" aria-hidden="false" aria-label="Example home icon" fontIcon="edit"></mat-icon>
+                <mat-icon matTooltip="Eliminar"   aria-hidden="false" aria-label="Example home icon" fontIcon="delete"></mat-icon>
+
+            </td>
+        </tr>
+       
+
+
+        
+    </tbody>
+</table>
+</div>
+</div>

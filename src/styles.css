@@ -1,0 +1,48 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.container{
+  margin: 5%  5%;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+
+.container table {
+   
+    /* margin-top: 4%; */
+    border: 1px solid #e8e8e8;  /* Un borde leve */
+    border-radius: 4px;         /* Bordes redondeados, como en mat-card */
+    box-shadow: 
+        0px 2px 1px -1px rgba(0, 0, 0, 0.2), 
+        0px 1px 1px 0px rgba(0, 0, 0, 0.14), 
+        0px 1px 3px 0px rgba(0, 0, 0, 0.12);  
+        
+   
+ }
+
+
+
+ 
+ /* agregar o editar pais  */
+
+ /* Esto hace que el mat-form-field ocupe todo el ancho de su contenedor */
+ mat-form-field { 
+    width: 100%;  
+  
+  }
+  
+
+
+  #border{
+
+   border-radius: 15px  !important;/* Ajusta este valor para obtener el redondeo deseado */
+
+  }
+
+
+  
+

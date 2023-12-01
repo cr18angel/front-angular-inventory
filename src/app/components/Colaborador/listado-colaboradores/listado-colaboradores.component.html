@@ -1,0 +1,65 @@
+
+<app-spinner *ngIf="loading"></app-spinner>
+<div class="container">
+
+
+<div  class="content-container">
+
+   
+   
+<table  class="table table-hover text-center" style="font-size: 12px;">
+    <thead >
+        <tr>
+            <th>Run</th>
+            <th>Nombre </th>
+            <th>Correo </th>
+            <!-- <th>Rol </th> -->
+            <!-- <th>Usuario NTE </th> -->
+            <th>Fecha_ingreso </th>
+            <!-- <th>Jefatura </th> -->
+            <th>Area </th>
+            <th>Cargo </th>
+            <th>CentroCosto </th>
+            <!-- <th>Empresa </th> -->
+             <th>Gerencia </th>
+            <th>Sucursal </th>
+           
+            <!-- <th> <button routerLink="/colaborador" mat-raised-button color="warn">Nuevo</button>    </th> -->
+              <th> <button routerLink="/colaborador" mat-raised-button color="warn">Nuevo</button>    </th>
+         
+        </tr>
+    </thead>
+    <tbody>
+       
+        <tr *ngFor="let colaborador of dataSources" >
+            <td>{{colaborador.run}}</td>
+            <td>{{colaborador.nombre}}</td>
+            <td>{{colaborador.correo}}</td>
+            <!-- <td>{{colaborador.roles}}</td> -->
+            <!-- <td>{{colaborador.usuarioNTE}}</td> -->
+            <td>{{colaborador.fecha_Ingreso}}</td>
+            <!-- <td>{{colaborador.jefatura_Directa}}</td> -->
+            <td>{{colaborador.area.areaNombre}}</td>
+            <td>{{colaborador.cargo.cargoNombre}}</td>
+            <td>{{colaborador.centroCosto.centroCostoNombre}} - {{colaborador.centroCosto.centroCostoCod}}</td>
+            <!-- <td>{{colaborador.empresaId}}</td> -->
+            <td>{{colaborador.gerencia.gerenciaNombre}}</td>
+            <td>{{colaborador.sucursal.sucursalNombre}}</td>
+
+       
+           
+            <td>
+                <mat-icon matTooltip="buscar"   aria-hidden="false" aria-label="Example home icon" fontIcon="search"></mat-icon>
+                <mat-icon routerLink="/colaborador" matTooltip="Editar" aria-hidden="false" aria-label="Example home icon" fontIcon="edit"></mat-icon>
+                <!-- <mat-icon matTooltip="Eliminar"   aria-hidden="false" aria-label="Example home icon" fontIcon="delete"></mat-icon> -->
+
+            </td>
+        </tr>
+       
+
+
+        
+    </tbody>
+</table>
+</div>
+</div>

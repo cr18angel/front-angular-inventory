@@ -1,0 +1,100 @@
+<div class="container">
+    <h2>Agregar Asignación CrearSP</h2>
+    <form [formGroup]="asignacionForm" (ngSubmit)="onSubmit()">
+        <!-- <mat-form-field>
+            <mat-label>Fecha de Asignación</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="fechaAsignacion">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field> -->
+
+
+
+        <!-- Colaborador -->
+        <mat-form-field>
+            <!-- NUEVO Select -->
+            <mat-label>Nombre Usuario</mat-label>
+
+            <input type="text" placeholder="Usuario" aria-label="text" formControlName="usuario" matInput
+                [matAutocomplete]="autoUsuario">
+
+            <!-- displaywith: deja el nombre que seleccine -->
+            <mat-autocomplete #autoUsuario="matAutocomplete" [displayWith]="displayColaborador">
+                <mat-option *ngFor="let option of filteredColaborador | async" [value]="option">
+                    {{option.nombre}}
+                </mat-option>
+            </mat-autocomplete>
+            <!-- FIN Select  -->
+        </mat-form-field>
+        <!-- FIN COLABORADOR -->
+
+
+        <!-- Computador  -->
+        <mat-form-field>
+            <!-- NUEVO Select -->
+            <mat-label>Computador</mat-label>
+
+            <input type="text" placeholder="Serie Computador" aria-label="text" formControlName="computador" matInput
+                [matAutocomplete]="autoComputador">
+
+            <!-- displaywith: deja el nombre que seleccine -->
+            <mat-autocomplete #autoComputador="matAutocomplete" [displayWith]="displayComputador">
+                <mat-option *ngFor="let option of filteredComputador | async" [value]="option">
+                    {{option.serie}} - {{option.modelo.nombreModelo}}
+
+                </mat-option>
+            </mat-autocomplete>
+            <!-- FIN Select  -->
+        </mat-form-field>
+        <!-- FIN Computador  -->
+
+
+        <!-- Celular  -->
+        <mat-form-field>
+            <!-- NUEVO Select -->
+            <mat-label>Celular</mat-label>
+
+            <input type="text" placeholder="Celular" aria-label="text" formControlName="celular" matInput
+                [matAutocomplete]="autoCelular">
+
+            <!-- displaywith: deja el nombre que seleccine -->
+            <mat-autocomplete #autoCelular="matAutocomplete" [displayWith]="displayCelular">
+                <mat-option *ngFor="let option of filterdeCelular | async" [value]="option">
+                    {{option.imei}} - {{option.modelo.nombreModelo}}
+
+                </mat-option>
+            </mat-autocomplete>
+            <!-- FIN Select  -->
+        </mat-form-field>
+        <!-- FIN Celular  -->
+
+        <!-- Linea Movil  -->
+        <mat-form-field>
+            <!-- NUEVO Select -->
+            <mat-label>Linea Movil</mat-label>
+
+            <input type="text" placeholder="Celular" aria-label="text" formControlName="linea" matInput
+                [matAutocomplete]="autoLinea">
+
+            <!-- displaywith: deja el nombre que seleccine -->
+            <mat-autocomplete #autoLinea="matAutocomplete" [displayWith]="displayLinea">
+                <mat-option *ngFor="let option of filteredLinea | async" [value]="option">
+                    {{option.numeroCelular}}
+
+                </mat-option>
+            </mat-autocomplete>
+            <!-- FIN Select  -->
+        </mat-form-field>
+        <!-- FIN Celular  -->
+        <mat-form-field>
+            <mat-label>Observación</mat-label>
+            <textarea matInput formControlName="observacion"></textarea>
+        </mat-form-field>
+
+        <div class="actions">
+            <button type="submit" mat-raised-button color="primary" [disabled]="isLoading">Guardar</button>
+            <button type="button" mat-button (click)="onCancel()">Cancelar</button>
+        </div>
+    </form>
+
+</div>

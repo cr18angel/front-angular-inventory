@@ -1,0 +1,175 @@
+<div class="container">
+
+
+    <div class="content-container">
+
+        <h1> Nuevo Celular </h1>
+
+        <form [formGroup]="form" (ngSubmit)="addCelular()">
+
+
+
+
+            <mat-grid-list cols="2" rowHeight="80px">
+                <!-- Serie -->
+                <mat-grid-tile>
+                    <mat-form-field appearance="outline">
+                        <mat-label>IMEI</mat-label>
+                        <input formControlName="imei" matInput placeholder="imei">
+                    </mat-form-field>
+                </mat-grid-tile>
+
+
+
+                <!-- NroFactura -->
+                <mat-grid-tile>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Número de Factura</mat-label>
+
+                        <input formControlName="nroFactura" matInput placeholder="Número de Factura">
+                        <mat-error *ngIf="form.get('nroFactura')?.hasError('pattern')">
+                            Solo se permiten números.
+                        </mat-error>
+
+                    </mat-form-field>
+                </mat-grid-tile>
+
+                <!-- NroGuia -->
+                <mat-grid-tile>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Número de Guía</mat-label>
+
+                        <input formControlName="nroGuia" matInput placeholder="Número de Guía">
+                        <mat-error *ngIf="form.get('nroGuia')?.hasError('pattern')">
+                            Solo se permiten números.
+                        </mat-error>
+
+                    </mat-form-field>
+                </mat-grid-tile>
+
+                <!-- Precio -->
+                <mat-grid-tile>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Precio</mat-label>
+
+                        <input formControlName="precio" matInput placeholder="Precio">
+                        <mat-error *ngIf="form.get('precio')?.hasError('pattern')">
+                            Solo se permiten números.
+                        </mat-error>
+
+                    </mat-form-field>
+                </mat-grid-tile>
+
+                <!-- Fecha de Compra -->
+                <mat-grid-tile>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Fecha de Compra</mat-label>
+                        <input formControlName="fechaCompra" matInput [matDatepicker]="picker">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                </mat-grid-tile>
+
+
+
+
+                <!-- CAMPOS DE SELECT . --------------------->
+
+
+                <!-- NUEV --- PAIS -->
+                <mat-grid-tile>
+
+                    <mat-form-field>
+                        <!-- NUEVO Select -->
+                        <mat-label>PAIS</mat-label>
+
+                        <input type="text" placeholder="Pais" aria-label="text" formControlName="pais" matInput
+                            [matAutocomplete]="autoPais">
+
+                        <!-- displaywith: deja el nombre que seleccine -->
+                        <mat-autocomplete #autoPais="matAutocomplete" [displayWith]="displayPais">
+                            <mat-option *ngFor="let option of filteredPais | async" [value]="option">
+                                {{option.nombrePais}}
+                            </mat-option>
+                        </mat-autocomplete>
+                        <!-- FIN Select  -->
+                    </mat-form-field>
+
+                </mat-grid-tile>
+                <!-- FIN GRID -->
+
+
+
+                <!-- NUEV --- MODELO -->
+                <mat-grid-tile>
+
+                    <mat-form-field>
+                        <!-- NUEVO Select -->
+                        <mat-label>Modelo Movil</mat-label>
+
+                        <input type="text" placeholder="Modelo" aria-label="text" formControlName="modelof" matInput
+                            [matAutocomplete]="autoModelo">
+
+                        <!-- displaywith: deja el nombre que seleccine -->
+                        <mat-autocomplete #autoModelo="matAutocomplete" [displayWith]="displayModelo">
+                            <mat-option *ngFor="let option of filteredModelo | async" [value]="option">
+                                {{option.nombreModelo}}
+                            </mat-option>
+                        </mat-autocomplete>
+                        <!-- FIN Select  -->
+                    </mat-form-field>
+
+                </mat-grid-tile>
+                <!-- FIN GRID -->
+
+
+
+
+
+
+                <!-- NUEV --- UBICACION -->
+                <mat-grid-tile>
+
+                    <mat-form-field>
+                        <!-- NUEVO Select -->
+                        <mat-label>Ubicacion Activo</mat-label>
+
+                        <input type="text" placeholder="Ubicacion" aria-label="text" formControlName="ubicacion"
+                            matInput [matAutocomplete]="autoUbicacion">
+
+                        <!-- displaywith: deja el nombre que seleccine -->
+                        <mat-autocomplete #autoUbicacion="matAutocomplete" [displayWith]="displayUbicacion">
+                            <mat-option *ngFor="let option of filteredUbicacion | async" [value]="option">
+                                {{option.ubicacion}}
+                            </mat-option>
+                        </mat-autocomplete>
+                        <!-- FIN Select  -->
+                    </mat-form-field>
+
+                </mat-grid-tile>
+                <!-- FIN GRID -->
+
+
+                <!-- Característica -->
+                <mat-grid-tile>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Observacion</mat-label>
+                        <input formControlName="observacion" matInput
+                            placeholder="Agregar por ejemplo la partida de compra o lote ..">
+                    </mat-form-field>
+                </mat-grid-tile>
+
+
+
+                <!-- Botón de envío -->
+                <mat-grid-tile [colspan]="2">
+
+                    <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">Agregar
+                        Celular</button>
+
+
+                </mat-grid-tile>
+            </mat-grid-list>
+        </form>
+    </div>
+</div>

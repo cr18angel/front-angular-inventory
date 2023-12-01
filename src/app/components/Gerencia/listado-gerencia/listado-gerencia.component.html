@@ -1,0 +1,40 @@
+
+<app-spinner *ngIf="loading" ></app-spinner>
+<div class="container">
+
+
+
+<div  class="content-container">
+
+   
+   
+<table  class="table table-hover text-center">
+    <thead >
+        <tr>
+            <th>Id</th>
+            <th>Nombre </th>
+            <th> <button routerLink="/gerencia" mat-raised-button color="warn">Nuevo</button>    </th>
+         
+        </tr>
+    </thead>
+    <tbody>
+       
+        <tr *ngFor="let gerencia of dataSources" >
+            <td>{{gerencia.id}}</td>
+            <td>{{gerencia.gerenciaNombre}}</td>
+       
+           
+            <td>
+                <mat-icon  matTooltip="Editar" aria-hidden="false" aria-label="Example home icon" fontIcon="edit"></mat-icon>
+                <mat-icon matTooltip="Eliminar"   aria-hidden="false" aria-label="Example home icon" fontIcon="delete"></mat-icon>
+
+            </td>
+        </tr>
+       
+
+
+        
+    </tbody>
+</table>
+</div>
+</div>

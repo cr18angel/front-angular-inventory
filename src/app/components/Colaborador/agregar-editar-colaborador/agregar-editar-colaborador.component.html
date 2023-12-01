@@ -1,0 +1,254 @@
+<div class="container">
+
+
+
+  <div class="content-container">
+
+    <h1> Nuevo Colaborador </h1>
+
+    <!-- form es el nombre de la variable -->
+
+    <form [formGroup]="form" (ngSubmit)="addColaborador()">
+      <mat-grid-list cols="2" rowHeight="80px">
+
+        <!-- NUEVO GRID -->
+        <mat-grid-tile [colspan]="1">
+          <!-- NUEVO INPUT -->
+          <mat-form-field appearance="outline">
+            <mat-label>Run</mat-label>
+            <input formControlName="run" matInput placeholder="Run">
+          </mat-form-field>
+          <!-- FIN INPUT  -->
+        </mat-grid-tile>
+        <!-- FIN GRID -->
+
+
+        <!-- NUEVO GRID -->
+        <mat-grid-tile [colspan]="1">
+          <!-- NUEVO INPUT -->
+          <mat-form-field appearance="outline">
+            <mat-label>Nombre</mat-label>
+            <input formControlName="nombre" matInput placeholder="Nombre">
+          </mat-form-field>
+          <!-- FIN INPUT  -->
+        </mat-grid-tile>
+        <!-- FIN GRID -->
+
+        <!-- NUEVO GRID -->
+        <mat-grid-tile [colspan]="1">
+
+          <!-- NUEVO INPUT -->
+          <mat-form-field appearance="outline">
+            <mat-label>Correo</mat-label>
+            <input formControlName="correo" matInput placeholder="Correo">
+          </mat-form-field>
+          <!-- FIN INPUT  -->
+        </mat-grid-tile>
+        <!-- FIN GRID -->
+
+        <!-- NUEVO GRID -->
+        <mat-grid-tile [colspan]="1">
+          <!-- NUEVO INPUT -->
+          <mat-form-field appearance="outline">
+            <mat-label>Clave</mat-label>
+            <input formControlName="clave" matInput placeholder="Clave">
+          </mat-form-field>
+          <!-- FIN INPUT  -->
+        </mat-grid-tile>
+        <!-- FIN GRID -->
+
+
+
+        <!-- NUEVO GRID -->
+        <mat-grid-tile>
+          <!-- NUEVO INPUT -->
+          <mat-form-field appearance="outline">
+            <mat-label>Usuario NTE</mat-label>
+            <input formControlName="usuarioNte" matInput placeholder="UsuarioNTE">
+          </mat-form-field>
+          <!-- FIN INPUT  -->
+        </mat-grid-tile>
+        <!-- FIN GRID -->
+
+        <!-- NUEVO GRID -->
+        <mat-grid-tile>
+
+          <!-- NUEVO INPUT -->
+          <mat-form-field appearance="outline">
+            <mat-label>Jefatura Directa</mat-label>
+            <input formControlName="jefatura" matInput placeholder="Jefatura Direct">
+          </mat-form-field>
+          <!-- FIN INPUT  -->
+        </mat-grid-tile>
+        <!-- FIN GRID -->
+
+
+        <!-- NUEVO GRID -->
+        <mat-grid-tile>
+          <mat-form-field>
+            <!-- NUEVO Select -->
+            <mat-label>Rol</mat-label>
+
+            <input type="text" placeholder="Rol" aria-label="text" matInput formControlName="rol"
+              [matAutocomplete]="autoRole">
+            <!-- displaywith: deja el nombre que seleccine -->
+            <mat-autocomplete #autoRole="matAutocomplete" [displayWith]="displayRole">
+
+              <mat-option *ngFor="let option of filteredRoles | async" [value]="option">
+                {{option.rolNombre}}
+              </mat-option>
+            </mat-autocomplete>
+            <!-- FIN Select  -->
+          </mat-form-field>
+        </mat-grid-tile>
+        <!-- FIN GRID -->
+
+        <!-- NUEVO GRID -->
+        <mat-grid-tile>
+
+          <mat-form-field>
+            <mat-label>Fecha de Ingreso</mat-label>
+            <input formControlName="fecha" matInput [matDatepicker]="picker">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+
+        </mat-grid-tile>
+        <!-- FIN GRID -->
+
+
+        <!-- NUEVO GRID -->
+        <mat-grid-tile>
+
+          <mat-form-field>
+            <!-- NUEVO Select -->
+            <mat-label>Area</mat-label>
+
+            <input type="text" placeholder="Area" aria-label="text" formControlName="area" matInput
+              [matAutocomplete]="auto">
+            <!-- displaywith: deja el nombre que seleccine -->
+            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayArea">
+
+              <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                {{option.areaNombre}}
+              </mat-option>
+            </mat-autocomplete>
+
+            <!-- FIN Select  -->
+          </mat-form-field>
+        </mat-grid-tile>
+        <!-- FIN GRID -->
+
+        <!-- NUEVO GRID -->
+        <mat-grid-tile>
+          <mat-form-field>
+            <!-- NUEVO Select -->
+            <mat-label>Cargos</mat-label>
+
+            <input type="text" placeholder="Area" aria-label="text" matInput formControlName="cargo"
+              [matAutocomplete]="autoCargo">
+            <!-- displaywith: deja el nombre que seleccine -->
+            <mat-autocomplete #autoCargo="matAutocomplete" [displayWith]="displayCargo">
+
+              <mat-option *ngFor="let option of filterCargos | async" [value]="option">
+                {{option.cargoNombre}}
+              </mat-option>
+            </mat-autocomplete>
+
+            <!-- FIN Select  -->
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <!-- NUEVO GRID -->
+        <mat-grid-tile>
+          <mat-form-field>
+            <!-- NUEVO Select -->
+            <mat-label>Sucursal</mat-label>
+
+            <mat-select formControlName="sucursal">
+              <mat-option *ngFor="let data of sourceSucursales" [value]="data">
+                {{data.sucursalNombre}}
+              </mat-option>
+            </mat-select>
+
+            <!-- FIN Select  -->
+          </mat-form-field>
+        </mat-grid-tile> <!-- FIN GRID -->
+
+
+        <!-- NUEVO GRID -->
+        <mat-grid-tile>
+          <mat-form-field>
+            <!-- NUEVO Select -->
+            <mat-label>Centro Costo</mat-label>
+
+            <input type="text" placeholder="Centro Costo" aria-label="text" matInput formControlName="centroCosto"
+              [matAutocomplete]="autoCCosto">
+            <!-- displaywith: deja el nombre que seleccine -->
+            <mat-autocomplete #autoCCosto="matAutocomplete" [displayWith]="displayCentroCosto">
+
+              <mat-option *ngFor="let data of filterCCosto | async" [value]="data">
+                {{data.centroCostoNombre}} - {{data.centroCostoCod}}
+              </mat-option>
+            </mat-autocomplete>
+
+            <!-- FIN Select  -->
+          </mat-form-field>
+        </mat-grid-tile>
+
+
+        <!-- NUEVO GRID -->
+        <mat-grid-tile>
+
+          <mat-form-field>
+            <!-- NUEVO Select -->
+            <mat-label>Empresa</mat-label>
+
+            <mat-select formControlName="empresa">
+              <mat-option *ngFor="let data of sourceEmpresa" [value]="data">
+                {{data.empresaNombre}}
+              </mat-option>
+            </mat-select>
+
+            <!-- FIN Select  -->
+          </mat-form-field>
+
+        </mat-grid-tile>
+        <!-- FIN GRID -->
+
+
+
+
+        <!-- NUEVO GRID -->
+        <mat-grid-tile>
+          <mat-form-field>
+            <!-- NUEVO Select -->
+            <mat-label>Gerencia</mat-label>
+
+            <input type="text" placeholder="Gerencia" aria-label="text" matInput formControlName="gerencia"
+              [matAutocomplete]="autoGerencia">
+            <!-- displaywith: deja el nombre que seleccine -->
+            <mat-autocomplete #autoGerencia="matAutocomplete" [displayWith]="displayGerencia">
+
+              <mat-option *ngFor="let data of filterGerencia | async" [value]="data">
+                {{data.gerenciaNombre}}
+              </mat-option>
+            </mat-autocomplete>
+
+            <!-- FIN Select  -->
+          </mat-form-field>
+        </mat-grid-tile>
+
+
+        <!-- NUEVO GRID  [disabled]="form.invalid"  -->
+        <mat-grid-tile><button type="submit" mat-raised-button color="warn">Guardar</button></mat-grid-tile>
+        <mat-grid-tile><button routerLink="/listColaborador" mat-raised-button
+            color="warn">Atras</button></mat-grid-tile>
+        <!-- FIN GRID -->
+
+      </mat-grid-list>
+
+    </form>
+
+  </div>

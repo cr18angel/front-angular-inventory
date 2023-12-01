@@ -1,0 +1,39 @@
+<app-spinner *ngIf="loading"></app-spinner>
+<div class="container">
+    <table  class="table table-hover text-center">
+
+      <thead >
+        <tr>
+            <th>Id</th>
+            <th>Nombre </th>
+            <th>Sucursal </th>
+
+            <th> <button routerLink="/sucursal" mat-raised-button color="warn">Nuevo</button>   </th>
+         
+        </tr>
+    </thead>
+    <tbody>
+        <!-- <mat-option *ngFor="let pais of paises" [value]="pais.id">
+            {{pais.paisNombre}}
+        </mat-option> -->
+            <tr *ngFor="let data of dataSource" >
+                <td>{{data.id}}</td>
+                <td>{{data.sucursalNombre}}</td>
+                <td>{{data.pais.paisNombre}}</td>
+        
+           
+            <td>
+                <mat-icon  matTooltip="Editar" aria-hidden="false" aria-label="Example home icon" fontIcon="edit"></mat-icon>
+                <mat-icon matTooltip="Eliminar"   aria-hidden="false" aria-label="Example home icon" fontIcon="delete"></mat-icon>
+
+            </td>
+        </tr>
+       
+
+    </tbody>
+
+    
+  </table>
+      
+
+</div>

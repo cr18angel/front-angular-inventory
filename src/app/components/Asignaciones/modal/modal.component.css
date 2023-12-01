@@ -1,0 +1,18 @@
+/* Asegúrate de que el modal no sea más grande que la pantalla y no provoque el desplazamiento del body */
+.container {
+    overflow-y: auto;
+    /* Permite scroll en el contenido del modal si es necesario */
+    max-height: 70vh;
+    /* Ajusta esto según el padding/margen del contenido y el tamaño de la pantalla */
+    padding: 20px;
+    /* Ajusta el padding según sea necesario */
+}
+
+/* Ajustes adicionales para mat-form-field si es necesario */
+mat-form-field {
+    margin-bottom: 8px;
+}
+
+.actions {
+    margin-top: 16px;
+}

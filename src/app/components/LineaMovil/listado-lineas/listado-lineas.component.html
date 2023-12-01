@@ -1,0 +1,71 @@
+<app-spinner></app-spinner>
+
+<div style="margin: 1% 1%; text-align: center;">
+
+    <mat-form-field>
+        <mat-label>Buscar Campo</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+    </mat-form-field>
+
+
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 ">
+
+        <!-- Serie Colum -->
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef>Id</th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+
+        <!-- Marca Colum -->
+        <ng-container matColumnDef="NumeroCelular">
+            <th mat-header-cell *matHeaderCellDef>Numero</th>
+            <td mat-cell *matCellDef="let element"> {{element.numeroCelular}} </td>
+        </ng-container>
+
+        <!-- Modelo Colum -->
+        <ng-container matColumnDef="Imei">
+            <th mat-header-cell *matHeaderCellDef>Imei</th>
+            <td mat-cell *matCellDef="let element"> {{element.imei}} </td>
+        </ng-container>
+
+
+        <!-- Modelo Colum -->
+        <ng-container matColumnDef="AsignacionId">
+            <th mat-header-cell *matHeaderCellDef>Asignacion</th>
+            <td mat-cell *matCellDef="let element"> Asignacion </td>
+        </ng-container>
+
+
+
+
+
+
+        <!-- Acciones colum -->
+        <ng-container matColumnDef="acciones">
+            <th mat-header-cell *matHeaderCellDef><button routerLink="/linea" mat-raised-button
+                    color="warn">Nuevo</button>
+            </th>
+
+            <td mat-cell *matCellDef="let element">
+
+                <mat-icon matTooltip="buscar" aria-hidden="false" aria-label="Example home icon"
+                    fontIcon="delete"></mat-icon>
+                <mat-icon routerLink="/colaborador" matTooltip="Editar" aria-hidden="false"
+                    aria-label="Example home icon" fontIcon="edit"></mat-icon>
+
+            </td>
+        </ng-container>
+
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        <!-- Row shown when there is no matching data. -->
+        <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+        </tr>
+    </table>
+
+</div>

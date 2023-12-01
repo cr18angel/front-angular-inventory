@@ -1,0 +1,75 @@
+<app-spinner *ngIf="loading" ></app-spinner>
+<div class="container">
+    <table class="table table-hover text-center">
+   
+      
+      <thead >
+        <tr>
+            <th>Id</th>
+            <th>Nombre </th>
+            <th> <button routerLink="/pais" mat-raised-button color="warn">Nuevo</button>    </th>
+    
+        </tr>
+    </thead>
+
+    <tbody>
+      
+
+      <tr *ngFor="let pais of dataSources" >
+
+          <td>{{pais.id}}</td>
+          <td>{{pais.paisNombre}}</td>
+     
+         
+          <td>
+              <mat-icon routerLink="/editarpais/{{pais.id}}/" matTooltip="Editar" aria-hidden="false" aria-label="Example home icon" fontIcon="edit"></mat-icon>
+              <mat-icon matTooltip="Eliminar/{{pais.id}}/"   aria-hidden="false" aria-label="Example home icon" fontIcon="delete"></mat-icon>
+
+          </td>
+      </tr>
+     
+
+
+      
+  </tbody>
+      
+
+
+
+
+
+
+
+
+<!--           
+       <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> Id </th>
+          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+    
+  
+        <ng-container matColumnDef="paisNombre">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.paisNombre}} </td>
+        </ng-container>
+    
+    
+          <ng-container matColumnDef="logo">
+    
+            <th mat-header-cell *matHeaderCellDef> 
+              <button routerLink="/pais" mat-raised-button color="warn">Nuevo</button>
+             </th>
+            
+             <td mat-cell *matCellDef="let element">
+              <mat-icon routerLink="/editarpais/{{element.id}}" aria-hidden="false" aria-label="Example home icon" fontIcon="edit"></mat-icon>
+              <mat-icon (click)="eliminarPais(element.id)" aria-hidden="false" aria-label="Example home icon" fontIcon="delete"></mat-icon>
+              
+              </td>
+          </ng-container>
+      
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> -->
+      </table>
+    
+    </div>

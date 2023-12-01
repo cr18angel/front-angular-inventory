@@ -1,0 +1,11 @@
+.table table-hover text-center {
+    font-size: 5px;
+}
+/* 
+.table table-hover text-center td{
+    font-size: 5px;
+} */
+
+ng-star-inserted tbody{
+    font-size: 5px;
+} 
